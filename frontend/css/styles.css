@@ -1,0 +1,493 @@
+/* =========================
+VARIABLES
+========================= */
+:root {
+  --color-bg: #D9CAB2;
+  --color-bg-light: #F3F1EE;
+  --color-primary: #F0741E;
+  --color-primary-dark: #d65f12;
+  --color-secondary: #FBB847;
+  --color-brown: #3F230B;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray: #333;
+  --color-light-gray: #7d7d7d;
+}
+
+/* =========================
+RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Fredoka', sans-serif;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: block; 
+}
+
+button{
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500;
+}
+
+span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Clase creada para ocultar los overlay */
+.hidden {
+  display: none !important;
+}
+
+
+/* =========================
+BOTONES
+========================= */
+.btn {
+  background-color: transparent;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  min-height: 45px;
+  font-size: 1.1rem;
+  color: var(--color-white);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-ghost {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: var(--color-brown);
+  font-size: 1.5rem;
+}
+
+.btn-ghost:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+/* =========================
+HEADER
+========================= */
+#header {
+  position: sticky;
+  background-color: var(--color-bg-light);
+  padding: 10px 20px;
+  box-shadow: 1px 6px 19px -8px rgba(63,35,11,0.75);
+  -webkit-box-shadow: 1px 6px 19px -8px rgba(63,35,11,0.75);
+  -moz-box-shadow: 1px 6px 19px -8px rgba(63,35,11,0.75);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 100px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-left: 20px;
+}
+
+.header-nav a {
+  color: var(--color-brown);
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.header-nav a:hover {
+  color: var(--color-primary);
+}
+
+.nav-btn {
+  align-items: center;
+}
+
+/* =========================
+SEARCH BAR
+========================= */
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px 10px 20px;
+  min-width: 400px;
+  min-height: 40px;
+  background-color: var(--color-white);
+  border-radius: 15px;
+  border: 0.25px solid var(--color-bg);
+}
+.search-bar:hover {
+  border-color: var(--color-brown);
+}
+.search-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  border: none;
+  font-size: 18px;
+  background: transparent;
+}
+
+input:focus {
+  outline: none;
+}
+
+/* =========================
+SALUDO
+========================= */
+#saludo {
+  font-weight: bold;
+  color: var(--color-primary);
+  padding-left: 20px;
+}
+
+.name-container {
+  align-items: end;
+}
+
+/* =========================
+HERO
+========================= */
+.hero-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-container-left {
+  max-width: 500px;
+}
+
+.hero-container-left h1 {
+  color: var(--color-brown);
+  font-size: 3.5rem;
+}
+
+.hero-container-left p {
+  margin: 20px 0;
+  font-size: 1.25rem;
+}
+
+#ver-productos-btn {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.25rem;
+  transition: 0.3s;
+  min-height: 60px;
+  letter-spacing: 1px;
+}
+
+#ver-productos-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.hero-container-right {
+  font-size: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fingerprint {
+  font-size: 150px;
+  padding: 50px;
+  background-color: #ccc;
+  border: 10px dotted var(--color-brown);
+  border-radius: 50%;
+}
+
+/* =========================
+MODAL
+========================= */
+#modal-bienvenida {
+  position: fixed;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--color-bg-light);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  width: 1000px;
+  max-width: 90%;
+}
+
+#modal-bienvenida input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  min-height: 45px;
+}
+
+#modal-bienvenida button {
+  width: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  min-height: 45px;
+}
+
+#modal-bienvenida button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.logo-vertical {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px
+}
+
+.img-logo-modal {
+  min-height: 200px;
+}
+
+#modal-bienvenida h2 {
+  font-size: 2.75rem;
+  margin-bottom: 20px;
+}
+
+#modal-bienvenida p {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75); 
+  z-index: 999;
+}
+
+/* =========================
+PRODUCTOS
+========================= */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  width: 60%;
+}
+.products-header {
+  color: var(--color-brown);
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  padding:20px;
+  font-size: 1.5rem;
+}
+
+#btn-abrir-filtros {
+  margin-left: 60%;
+}
+.products-header h2 {
+  margin-bottom: 20px
+}
+
+.products-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+.filters-nav {
+  display: flex;
+  font-size: 2rem;
+  gap: 10px;
+}
+
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--color-white);
+  border-radius: 20px;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.product-actions {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.quantity-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid var(--color-bg);
+  border-radius: 10px;
+  gap: 10px;
+  width: fit-content;
+}
+.quantity-container:hover {
+  border-color: var(--color-brown);
+}
+
+.btn-minus, .btn-plus{
+  color: var(--color-light-gray);
+}
+/*Overlay de filtros y form de filtros*/
+
+
+/* Overlay */
+#filters-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75); 
+  z-index: 998; 
+}
+
+/* Modal de filtros */
+.filters-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  background-color: var(--color-white, #ffffff);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 999; 
+  width: 90%;
+  max-width: 400px;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+}
+
+.filters-form fieldset {
+  border: 1px solid var(--color-light-gray, #ccc);
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* =========================
+CARRITO
+========================= */
+.cart {
+  padding: 20px
+}
+
+th {
+  padding-bottom: 20px;
+}
+
+.cart h2{
+  color: var(--color-brown);
+  margin-bottom: 20px;
+  font-size: 2.25rem;
+}
+
+.cart-table {
+  padding: 15px;
+  background-color: var(--color-bg-light);
+  width: 60%;
+  border-radius: 15px;
+  font-size: 1.25rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.td-quantity {
+  text-align: center;
+}
+
+.cart-product-info {
+  display: flex;
+  flex-direction: row;
+
+}
+
+/* =========================
+FOOTER
+========================= */
+footer {
+  background-color: var(--color-black);
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+.footer-container{
+  color: var(--color-white);
+}
