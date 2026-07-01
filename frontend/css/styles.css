@@ -2,12 +2,12 @@
 VARIABLES
 ========================= */
 :root {
-  --color-bg: #D9CAB2;
-  --color-bg-light: #F3F1EE;
-  --color-primary: #F0741E;
+  --color-bg: #d9cab2;
+  --color-bg-light: #f3f1ee;
+  --color-primary: #f0741e;
   --color-primary-dark: #d65f12;
-  --color-secondary: #FBB847;
-  --color-brown: #3F230B;
+  --color-secondary: #fbb847;
+  --color-brown: #3f230b;
   --color-black: #000000;
   --color-white: #ffffff;
   --color-gray: #333;
@@ -23,12 +23,13 @@ RESET
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
-  font-family: 'Fredoka', sans-serif;
+  font-family: "Fredoka", sans-serif;
   background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
@@ -36,11 +37,11 @@ body {
 
 main {
   flex: 1;
-  display: block; 
+  display: block;
 }
 
-button{
-  font-family: 'Fredoka', sans-serif;
+button {
+  font-family: "Fredoka", sans-serif;
   font-weight: 500;
 }
 
@@ -61,13 +62,12 @@ span {
   display: none !important;
 }
 
-
 /* =========================
 BOTONES
 ========================= */
 .btn {
   background-color: transparent;
-  font-family: 'Fredoka', sans-serif;
+  font-family: "Fredoka", sans-serif;
   font-weight: 700;
   padding: 10px;
   border-radius: 15px;
@@ -103,9 +103,9 @@ HEADER
   position: sticky;
   background-color: var(--color-bg-light);
   padding: 10px 20px;
-  box-shadow: 1px 6px 19px -8px rgba(63,35,11,0.75);
-  -webkit-box-shadow: 1px 6px 19px -8px rgba(63,35,11,0.75);
-  -moz-box-shadow: 1px 6px 19px -8px rgba(63,35,11,0.75);
+  box-shadow: 1px 6px 19px -8px rgba(63, 35, 11, 0.75);
+  -webkit-box-shadow: 1px 6px 19px -8px rgba(63, 35, 11, 0.75);
+  -moz-box-shadow: 1px 6px 19px -8px rgba(63, 35, 11, 0.75);
 }
 
 .header-content {
@@ -262,7 +262,7 @@ MODAL
   padding: 30px;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   width: 1000px;
   max-width: 90%;
 }
@@ -297,7 +297,7 @@ MODAL
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 
 .img-logo-modal {
@@ -320,7 +320,7 @@ MODAL
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.75); 
+  background: rgba(0, 0, 0, 0.75);
   z-index: 999;
 }
 
@@ -338,7 +338,7 @@ PRODUCTOS
   display: flex;
   flex-direction: column;
   width: 100vw;
-  padding:20px;
+  padding: 20px;
   font-size: 1.5rem;
 }
 
@@ -346,7 +346,7 @@ PRODUCTOS
   margin-left: 60%;
 }
 .products-header h2 {
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 
 .products-container {
@@ -363,7 +363,6 @@ PRODUCTOS
   gap: 10px;
 }
 
-
 .product-card {
   display: flex;
   flex-direction: column;
@@ -373,7 +372,7 @@ PRODUCTOS
   padding: 15px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
 }
 
@@ -396,11 +395,11 @@ PRODUCTOS
   border-color: var(--color-brown);
 }
 
-.btn-minus, .btn-plus{
+.btn-minus,
+.btn-plus {
   color: var(--color-light-gray);
 }
 /*Overlay de filtros y form de filtros*/
-
 
 /* Overlay */
 #filters-overlay {
@@ -409,8 +408,8 @@ PRODUCTOS
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75); 
-  z-index: 998; 
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 998;
 }
 
 /* Modal de filtros */
@@ -418,18 +417,18 @@ PRODUCTOS
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
   background-color: var(--color-white, #ffffff);
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  z-index: 999; 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 999;
   width: 90%;
   max-width: 400px;
-  
+
   display: flex;
   flex-direction: column;
-  gap: 15px; 
+  gap: 15px;
 }
 
 .filters-form fieldset {
@@ -445,14 +444,14 @@ PRODUCTOS
 CARRITO
 ========================= */
 .cart {
-  padding: 20px
+  padding: 20px;
 }
 
 th {
   padding-bottom: 20px;
 }
 
-.cart h2{
+.cart h2 {
   color: var(--color-brown);
   margin-bottom: 20px;
   font-size: 2.25rem;
@@ -464,18 +463,106 @@ th {
   width: 60%;
   border-radius: 15px;
   font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+.td-quantity, .td-price, .td-delete{
   text-align: center;
   vertical-align: middle;
 }
 
-.td-quantity {
-  text-align: center;
-}
-
 .cart-product-info {
   display: flex;
-  flex-direction: row;
+  justify-content: left;
+  gap: 10px;
+}
 
+.btn-fin-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-fin {
+  font-size: 1.2rem;
+}
+.btn-continue {
+  font-size: 1.2rem;
+}
+
+/* =========================
+TICKET
+========================= */
+
+.ticket-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  padding: 60px;
+}
+
+.ticket-section h2 {
+  color: var(--color-brown);
+  font-size: 2.5rem;
+}
+
+.ticket-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-light);
+  border-radius: 15px;
+  padding: 20px 40px 20px 40px;
+}
+
+.ticket-container h3{
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--color-brown);
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.ticket-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.ticket-table thead, th {
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+.ticket-table td,th {
+  padding: 5px 5px 5px 0;
+}
+
+.ticket-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.ticket-table {
+  list-style: none;
+  text-align: left;
+}
+
+.ticket-product {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.ticket-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.divider {
+  height: 1px;
+  background-color: #ccc;
+  margin: 10px 0;
 }
 
 /* =========================
@@ -488,6 +575,6 @@ footer {
   margin-top: 40px;
 }
 
-.footer-container{
+.footer-container {
   color: var(--color-white);
 }
