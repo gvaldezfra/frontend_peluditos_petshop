@@ -432,6 +432,14 @@ PRODUCTOS
   border-color: var(--color-brown);
 }
 
+.product-quantity {
+  width: 40px;
+  text-align: center;
+  border: none;
+  font-size: 1.25rem;
+  background-color: transparent;
+}
+
 .btn-minus,
 .btn-plus {
   color: var(--color-light-gray);
