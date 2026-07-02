@@ -9,7 +9,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
@@ -58,45 +57,19 @@
                 <h2>Nuestros productos</h2>
 
                 <nav class="filters-nav">
-                    <button class="btn btn-ghost">Alimentos</button>
-                    <button class="btn btn-ghost">Accesorios</button>
+                    <button class="btn btn-ghost " id="btn-todos">Todos</button>
+                    <button class="btn btn-ghost " id="btn-alimentos">Alimentos</button>
+                    <button class="btn btn-ghost " id="btn-accesorios">Accesorios</button>
                     <button class="btn btn-primary" id="btn-abrir-filtros">Filtrar por</button>
                 </nav>
             </header>
             <div class="products-grid">
-                <article class="product-card">
-                    <div class="product-image">
-                        <img src="img/producto.jpg" alt="Collar rojo para perro">
-                    </div>
-
-                    <!-- INFO -->
-                    <div class="product-info">
-
-                        <h3 class="product-title">Collar rojo</h3>
-
-                        <!-- PRECIOS -->
-                        <div class="product-prices">
-                            <p class="price">$3000</p>
-                            <span class="price-tax">Precio sin impuestos: $2480</span>
-                        </div>
-
-                    </div>
-
-                    <!-- ACCIONES -->
-                    <div class="product-actions">
-                        <div class="quantity-container">
-                            <button class="btn btn-minus">−</button>
-                            <span class="quantity">1</span>
-                            <button class="btn btn-plus">+</button>
-                        </div>
-                        <button class="btn btn-primary">Agregar</button>
-                    </div>
-                </article>
+                
             </div>
         </section>
 
-        <!----Capa de filtros---->
-        <div id="filters-overlay" class="hidden"></div>
+        <!----Overlay para los filtros---->
+        <div id="filters-overlay" class="hidden">
 
         <!----Form de filtros de productos---->
         <form class="filters-form">
@@ -143,10 +116,11 @@
 
             </fieldset>
 
-            <button class="btn btn-primary" type="reset">Borrar filtros</button>
-            <button class="btn btn-primary" type="submit">Aplicar</button>
+            <button class="btn btn-primary" id="btn-borrar-filtros" type="reset">Borrar filtros</button>
+            <button class="btn btn-primary" id="btn-aplicar-filtros" type="submit">Aplicar</button>
 
         </form>
+        </div>
     </main>
     <!----Footer---->
     <footer>

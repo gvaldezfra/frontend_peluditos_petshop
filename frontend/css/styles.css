@@ -100,12 +100,17 @@ BOTONES
 HEADER
 ========================= */
 #header {
-  position: sticky;
   background-color: var(--color-bg-light);
   padding: 10px 20px;
   box-shadow: 1px 6px 19px -8px rgba(63, 35, 11, 0.75);
   -webkit-box-shadow: 1px 6px 19px -8px rgba(63, 35, 11, 0.75);
   -moz-box-shadow: 1px 6px 19px -8px rgba(63, 35, 11, 0.75);
+}
+
+#header-container {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .header-content {
@@ -314,7 +319,7 @@ MODAL
   margin-bottom: 10px;
 }
 
-#overlay {
+#overlay-bienvenida {
   position: fixed;
   top: 0;
   left: 0;
@@ -371,9 +376,41 @@ PRODUCTOS
   border-radius: 20px;
   padding: 15px;
   width: 100%;
+  min-height: 300px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
+}
+.product-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.product-card img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 15px;
+}
+
+.product-info {
+  margin-top: auto;
+  text-align: start;
+  gap: 10px;
+}
+
+.product-prices {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.product-prices p{
+  font-size: 1.25rem;
+}
+.product-prices span{
+  font-size: 1rem;
+  color: var(--color-light-gray);
 }
 
 .product-actions {
@@ -438,6 +475,13 @@ PRODUCTOS
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.no-products {
+  font-size: 1.5rem;
+  color: var(--color-light-gray);
+  text-align: center;
+  margin-top: 20px;
 }
 
 /* =========================
@@ -578,3 +622,4 @@ footer {
 .footer-container {
   color: var(--color-white);
 }
+
