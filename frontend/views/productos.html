@@ -9,46 +9,14 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon_io/favicon-16x16.png">
+    <meta name="view-transition" content="same-origin">
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
 
     <!----Header---->
-    <div id="header-container">
-        <header id="header">
-            <div class="header-content">
-                <div class="header-logo">
-                    <img class="img-logo" src="../assets/img/logo.png" alt="logo" height="80px">
-                    <img class="img-logo" src="../assets/img/texto-peluditos.png" alt="texto-peluditos" height="50px">
-                    <div class="name-container">
-                        <h3 id="saludo"></h3>
-                    </div>
-                </div>
-                <div class="search-bar">
-                    <input type="text" id="busqueda" placeholder="Buscar productos...">
-                    <button class="search-btn"><span>
-                            <svg height="30px" width="30px" viewBox="0 0 24.00 24.00" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" stroke="#000000"
-                                stroke-width="0.00024000000000000003">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M15 10.5C15 12.9853 12.9853 15 10.5 15C8.01472 15 6 12.9853 6 10.5C6 
-                                8.01472 8.01472 6 10.5 6C12.9853 6 15 8.01472 15 10.5ZM14.1793 15.2399C13.1632 
-                                16.0297 11.8865 16.5 10.5 16.5C7.18629 16.5 4.5 13.8137 4.5 10.5C4.5 7.18629 
-                                7.18629 4.5 10.5 4.5C13.8137 4.5 16.5 7.18629 16.5 10.5C16.5 11.8865 16.0297 
-                                13.1632 15.2399 14.1792L20.0304 18.9697L18.9697 20.0303L14.1793 15.2399Z"
-                                    fill="#7d7d7d">
-                                </path>
-                            </svg>
-                        </span></button>
-                </div>
-                <nav class="header-nav">
-                    <a class="nav-btn" href="../views/index.html">Inicio</a>
-                    <a class="nav-btn" href="../views/productos.html">Productos</a>
-                    <a class="nav-btn" href="../views/carrito.html">Carrito</a>
-                </nav>
-            </div>
-        </header>
-    </div>
+    <div id="header-container"></div>
     <!----Main---->
     <main>
         <!----Seccion de productos-->
@@ -57,79 +25,31 @@
                 <h2>Nuestros productos</h2>
 
                 <nav class="filters-nav">
-                    <button class="btn btn-ghost " id="btn-todos">Todos</button>
-                    <button class="btn btn-ghost " id="btn-alimentos">Alimentos</button>
-                    <button class="btn btn-ghost " id="btn-accesorios">Accesorios</button>
-                    <button class="btn btn-primary" id="btn-abrir-filtros">Filtrar por</button>
+                    <button class="btn btn-ghost " id="btn-alimentos" data-cat="comida">Alimentos</button>
+                    <button class="btn btn-ghost " id="btn-accesorios" data-cat="accesorio">Accesorios</button>
                 </nav>
             </header>
-            <div class="products-grid">
-                
+            <div class="products-grid"></div>
+            <div class="no-products-container hidden">
+                <p class="no-products">¡Ups! Nuestros productos no están disponibles en este momento.</p>
             </div>
         </section>
-
-        <!----Overlay para los filtros---->
-        <div id="filters-overlay" class="hidden">
-
-        <!----Form de filtros de productos---->
-        <form class="filters-form">
-
-            <!-- ORDEN (solo uno) -->
-            <fieldset>
-                <legend>Ordenar por</legend>
-
-                <label>
-                    <input type="radio" name="orden" value="az">
-                    Nombre A - Z
-                </label>
-
-                <label>
-                    <input type="radio" name="orden" value="za">
-                    Nombre Z - A
-                </label>
-
-                <label>
-                    <input type="radio" name="orden" value="precio-mayor">
-                    Precio mayor a menor
-                </label>
-
-                <label>
-                    <input type="radio" name="orden" value="precio-menor">
-                    Precio menor a mayor
-                </label>
-
-            </fieldset>
-
-            <!-- MASCOTA (multiple) -->
-            <fieldset>
-                <legend>Mascota</legend>
-
-                <label>
-                    <input type="checkbox" name="mascota" value="gato">
-                    Gato
-                </label>
-
-                <label>
-                    <input type="checkbox" name="mascota" value="perro">
-                    Perro
-                </label>
-
-            </fieldset>
-
-            <button class="btn btn-primary" id="btn-borrar-filtros" type="reset">Borrar filtros</button>
-            <button class="btn btn-primary" id="btn-aplicar-filtros" type="submit">Aplicar</button>
-
-        </form>
-        </div>
     </main>
     <!----Footer---->
-    <footer>
-        <div class="footer-container">
-            <p>&copy; 2026 Tienda Peluditos. Todos los derechos reservados.</p>
-            <p> Desarrollado por: <strong>Matías Barboza y Guadalupe Valdez</strong></p>
-        </div>
-    </footer>
+    <div id="footer-container"></div>
 
-    <script src="../js/app.js"></script>
+    <div id="modal-container" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3 id="modal-title">Atención</h3>
+            <p id="modal-message"></p>
+            <div class="modal-actions">
+                <button id="modal-btn-cancel" class="btn btn-secondary">Cancelar</button>
+                <button id="modal-btn-confirm" class="btn btn-primary">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/main.js"></script>
+</body>
 
 </html>
