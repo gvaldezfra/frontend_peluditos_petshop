@@ -1,6 +1,6 @@
 /* =========================
-VARIABLES
-========================= */
+   VARIABLES
+   ========================= */
 :root {
   --color-bg: #d9cab2;
   --color-bg-light: #f3f1ee;
@@ -9,14 +9,16 @@ VARIABLES
   --color-secondary: #fbb847;
   --color-brown: #3f230b;
   --color-black: #000000;
+  --color-title-primary: #3f230b;
+  --color-text-primary: #000000;
   --color-white: #ffffff;
   --color-gray: #333;
   --color-light-gray: #7d7d7d;
 }
 
 /* =========================
-RESET
-========================= */
+   RESET
+   ========================= */
 * {
   margin: 0;
   padding: 0;
@@ -33,6 +35,7 @@ body {
   background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
+  transition: background-color 0.3s ease, color 0.1s ease;
 }
 
 main {
@@ -57,14 +60,23 @@ span {
   justify-content: center;
 }
 
-/* Clase creada para ocultar los overlay */
+/* Clase creada para ocultar overlays / modales */
 .hidden {
   display: none !important;
 }
 
+.text-primary {
+  color: var(--color-text-primary);
+  font-size: 1.5rem;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
 /* =========================
-BOTONES
-========================= */
+   BOTONES
+   ========================= */
 .btn {
   background-color: transparent;
   font-family: "Fredoka", sans-serif;
@@ -75,12 +87,13 @@ BOTONES
   cursor: pointer;
   min-height: 45px;
   font-size: 1.1rem;
-  color: var(--color-white);
 }
 
 .btn-primary {
   background-color: var(--color-primary);
   color: var(--color-white);
+  font-size: 1.25rem;
+  padding: 10px;
 }
 
 .btn-primary:hover {
@@ -96,12 +109,17 @@ BOTONES
 .btn-ghost:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
+
 /* =========================
-HEADER
-========================= */
+   HEADER
+   ========================= */
 #header {
+  width: 100%;
   background-color: var(--color-bg-light);
   padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   box-shadow: 1px 6px 19px -8px rgba(63, 35, 11, 0.75);
   -webkit-box-shadow: 1px 6px 19px -8px rgba(63, 35, 11, 0.75);
   -moz-box-shadow: 1px 6px 19px -8px rgba(63, 35, 11, 0.75);
@@ -116,15 +134,24 @@ HEADER
 .header-content {
   display: flex;
   align-items: center;
+  width: 100%;
   justify-content: space-between;
   margin-right: 100px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
+/* Insignia del logo: usa el mismo fondo del tema (--color-bg-light).
+   Como tenés dos assets de logo (uno pensado para fondo claro #f3f1ee
+   y otro para fondo oscuro #2c2723), este color siempre calza con el
+   logo que corresponda mostrar en cada tema. */
 .header-logo {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding-left: 20px;
+  padding: 8px 20px;
+  border-radius: 15px;
+  background-color: var(--color-bg-light);
 }
 
 .header-nav a {
@@ -144,23 +171,33 @@ HEADER
   align-items: center;
 }
 
+#saludo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  padding-left: 20px;
+}
+
 /* =========================
-SEARCH BAR
-========================= */
+   SEARCH BAR
+   ========================= */
 .search-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px 10px 20px;
-  min-width: 400px;
-  min-height: 40px;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 60px;
   background-color: var(--color-white);
   border-radius: 15px;
   border: 0.25px solid var(--color-bg);
 }
+
 .search-bar:hover {
   border-color: var(--color-brown);
 }
+
 .search-btn {
   display: flex;
   justify-content: center;
@@ -174,19 +211,11 @@ input[type="text"] {
   border: none;
   font-size: 18px;
   background: transparent;
+  width: 100%;
 }
 
 input:focus {
   outline: none;
-}
-
-/* =========================
-SALUDO
-========================= */
-#saludo {
-  font-weight: bold;
-  color: var(--color-primary);
-  padding-left: 20px;
 }
 
 .name-container {
@@ -194,27 +223,28 @@ SALUDO
 }
 
 /* =========================
-HERO
-========================= */
+   HERO
+   ========================= */
+.title-primary {
+  color: var(--color-brown);
+  font-size: 3.5rem;
+}
+
 .hero-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  gap: 40px;
+  padding: 20px;
 }
 
 .hero-container-left {
   max-width: 500px;
 }
 
-.hero-container-left h1 {
-  color: var(--color-brown);
-  font-size: 3.5rem;
-}
-
 .hero-container-left p {
   margin: 20px 0;
-  font-size: 1.25rem;
 }
 
 #ver-productos-btn {
@@ -236,13 +266,41 @@ HERO
 }
 
 .hero-container-right {
-  font-size: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.fingerprint {
+.img-category {
+  max-height: 330px;
+  max-width: 500px;
+  width: 100%;
+  object-fit: contain;
+  border: none;
+  border-radius: 15px;
+}
+
+.btn-category {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--color-bg-light);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.btn-category:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.medium-text {
+  font-size: 2rem;
+  color: var(--color-title-primary);
+}
+
+#fingerprint {
   font-size: 150px;
   padding: 50px;
   background-color: #ccc;
@@ -251,25 +309,41 @@ HERO
 }
 
 /* =========================
-MODAL
-========================= */
-#modal-bienvenida {
+   MODAL BIENVENIDA
+   ========================= */
+#overlay-bienvenida {
   position: fixed;
-  flex-wrap: wrap;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  z-index: 9999;
+}
+
+#overlay-bienvenida.hidden {
+  display: none !important;
+}
+
+#modal-bienvenida {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background: var(--color-bg-light);
   padding: 30px;
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   width: 1000px;
-  max-width: 90%;
+  max-width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 #modal-bienvenida input {
@@ -297,16 +371,22 @@ MODAL
   background-color: var(--color-primary-dark);
 }
 
+/* Insignia del logo dentro del modal: mismo criterio, sigue el fondo
+   del tema para calzar con el logo correspondiente (claro/oscuro). */
 .logo-vertical {
   max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  padding: 15px 25px;
+  border-radius: 15px;
+  background-color: var(--color-bg-light);
 }
 
 .img-logo-modal {
   min-height: 200px;
+  max-width: 100%;
 }
 
 #modal-bienvenida h2 {
@@ -319,53 +399,47 @@ MODAL
   margin-bottom: 10px;
 }
 
-#overlay-bienvenida {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  z-index: 999;
-}
-
 /* =========================
-PRODUCTOS
-========================= */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-  width: 60%;
-}
-.products-header {
-  color: var(--color-brown);
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  padding: 20px;
-  font-size: 1.5rem;
-}
-
-#btn-abrir-filtros {
-  margin-left: 60%;
-}
-.products-header h2 {
-  margin-bottom: 20px;
-}
-
+   PRODUCTOS
+   ========================= */
 .products-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: auto;
+  width: 100%;
+}
+
+.products-header {
+  color: var(--color-brown);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  font-size: 1.5rem;
+}
+
+.products-header h2 {
+  margin-bottom: 20px;
+}
+
+#btn-abrir-filtros {
+  align-self: flex-end;
 }
 
 .filters-nav {
   display: flex;
   font-size: 2rem;
   gap: 10px;
+  flex-wrap: wrap;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  width: 60%;
 }
 
 .product-card {
@@ -381,12 +455,15 @@ PRODUCTOS
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
 }
+
 .product-card:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+
 .product-card img {
-  max-width: 100%;
-  max-height: 200px;
+  width: auto;
+  height: 200px;
+  object-fit: cover;
   border-radius: 15px;
 }
 
@@ -396,6 +473,12 @@ PRODUCTOS
   gap: 10px;
 }
 
+.product-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-brown);
+}
+
 .product-prices {
   display: flex;
   flex-direction: column;
@@ -403,12 +486,15 @@ PRODUCTOS
   justify-content: center;
   gap: 10px;
   margin: 10px 0;
+  text-align: left;
 }
 
-.product-prices p{
+.product-prices p {
   font-size: 1.25rem;
+  color: var(--color-brown);
 }
-.product-prices span{
+
+.product-prices span {
   font-size: 1rem;
   color: var(--color-light-gray);
 }
@@ -417,9 +503,11 @@ PRODUCTOS
   display: flex;
   justify-content: center;
   gap: 5px;
+  flex-wrap: wrap;
 }
 
 .quantity-container {
+  background-color: var(--color-bg-light);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -428,11 +516,12 @@ PRODUCTOS
   gap: 10px;
   width: fit-content;
 }
+
 .quantity-container:hover {
   border-color: var(--color-brown);
 }
 
-.product-quantity {
+.product-quantity-input {
   width: 40px;
   text-align: center;
   border: none;
@@ -444,46 +533,6 @@ PRODUCTOS
 .btn-plus {
   color: var(--color-light-gray);
 }
-/*Overlay de filtros y form de filtros*/
-
-/* Overlay */
-#filters-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 998;
-}
-
-/* Modal de filtros */
-.filters-form {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--color-white, #ffffff);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  z-index: 999;
-  width: 90%;
-  max-width: 400px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.filters-form fieldset {
-  border: 1px solid var(--color-light-gray, #ccc);
-  border-radius: 10px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
 
 .no-products {
   font-size: 1.5rem;
@@ -493,14 +542,14 @@ PRODUCTOS
 }
 
 /* =========================
-CARRITO
-========================= */
+   CARRITO
+   ========================= */
 .cart {
   padding: 20px;
-}
-
-th {
-  padding-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .cart h2 {
@@ -509,6 +558,8 @@ th {
   font-size: 2.25rem;
 }
 
+/* Wrapper con scroll horizontal para que la tabla no rompa el layout
+   en pantallas angostas, sin tocar el HTML/JS existente. */
 .cart-table {
   padding: 15px;
   background-color: var(--color-bg-light);
@@ -516,9 +567,25 @@ th {
   border-radius: 15px;
   font-size: 1.25rem;
   margin-bottom: 20px;
+  text-align: center;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
-.td-quantity, .td-price, .td-delete{
+.cart-table thead,
+.cart-table tbody {
+  display: table;
+  width: 100%;
+}
+
+th {
+  padding-bottom: 20px;
+}
+
+.td-quantity,
+.td-price,
+.td-delete {
   text-align: center;
   vertical-align: middle;
 }
@@ -526,26 +593,26 @@ th {
 .cart-product-info {
   display: flex;
   justify-content: left;
+  align-items: center;
   gap: 10px;
+  white-space: normal;
 }
 
 .btn-fin-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
-.btn-fin {
-  font-size: 1.2rem;
-}
+.btn-fin,
 .btn-continue {
   font-size: 1.2rem;
 }
 
 /* =========================
-TICKET
-========================= */
-
+   TICKET
+   ========================= */
 .ticket-section {
   width: 100%;
   display: flex;
@@ -553,12 +620,13 @@ TICKET
   justify-content: center;
   gap: 40px;
   align-items: center;
-  padding: 60px;
+  padding: 60px 20px;
 }
 
 .ticket-section h2 {
   color: var(--color-brown);
   font-size: 2.5rem;
+  text-align: center;
 }
 
 .ticket-container {
@@ -566,10 +634,12 @@ TICKET
   flex-direction: column;
   background-color: var(--color-bg-light);
   border-radius: 15px;
-  padding: 20px 40px 20px 40px;
+  padding: 20px 40px;
+  width: 100%;
+  max-width: 500px;
 }
 
-.ticket-container h3{
+.ticket-container h3 {
   text-align: center;
   font-size: 1.5rem;
   color: var(--color-brown);
@@ -580,29 +650,36 @@ TICKET
 .ticket-btn-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
-.ticket-table thead, th {
+.ticket-table {
+  list-style: none;
+  text-align: left;
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+}
+
+.ticket-table thead,
+th {
   border-bottom: 1px solid #ccc;
   text-align: left;
 }
-.ticket-table td,th {
+
+.ticket-table td,
+th {
   padding: 5px 5px 5px 0;
 }
 
 .ticket-table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-.ticket-table {
-  list-style: none;
-  text-align: left;
-}
 
 .ticket-product {
   display: flex;
   justify-content: space-between;
-
 }
 
 .ticket-total {
@@ -618,16 +695,314 @@ TICKET
 }
 
 /* =========================
-FOOTER
-========================= */
+   FOOTER
+   ========================= */
 footer {
+  display: flex;
+  flex-direction: column;
   background-color: var(--color-black);
   text-align: center;
   padding: 15px;
   margin-top: 40px;
+  gap: 5px;
 }
 
-.footer-container {
+#footer-container {
   color: var(--color-white);
 }
 
+.admin-link {
+  text-decoration: none;
+  color: var(--color-secondary);
+}
+
+/* =========================
+   MODAL DE CONFIRMACIÓN GENÉRICO
+   ========================= */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  background-color: var(--color-white);
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h3 {
+  margin-bottom: 15px;
+  color: var(--color-brown);
+}
+
+.modal-content p {
+  margin-bottom: 25px;
+  color: var(--color-gray);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* =========================
+   DARK MODE
+   ========================= */
+body.dark-mode {
+  --color-bg: #1a1614;
+  --color-bg-light: #2c2723;
+  --color-brown: #f3f1ee;
+  --color-black: #0a0908;
+  --color-light-gray: #b0b0b0;
+  --color-white: #222;
+  --color-text-primary: #ffffff;
+}
+
+body.dark-mode .search-bar:hover {
+  border-color: var(--color-primary);
+}
+
+body,
+.product-card,
+.cart-table,
+.ticket-container,
+#modal-bienvenida {
+  transition: background-color 0.3s ease, color 0.1s ease;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+/* Tablets / notebooks chicas */
+@media (max-width: 1100px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    width: 80%;
+  }
+
+  .header-content {
+    margin-right: 0;
+  }
+
+  .hero-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-container-left {
+    max-width: 100%;
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  #header {
+    padding: 10px 15px;
+  }
+
+  .header-content {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .header-nav a {
+    font-size: 1.2rem;
+    margin: 0 6px;
+  }
+
+  .search-bar {
+    order: 3;
+    max-width: 100%;
+  }
+
+  .title-primary {
+    font-size: 2.5rem;
+  }
+
+  .img-category {
+    max-height: 220px;
+  }
+
+  .cart-table,
+  .products-grid {
+    width: 90%;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #btn-abrir-filtros {
+    margin-left: 0;
+  }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-logo {
+    justify-content: center;
+  }
+
+  .header-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .header-nav a {
+    font-size: 1.1rem;
+    margin: 0 8px;
+  }
+
+  #saludo {
+    padding-left: 0;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .title-primary {
+    font-size: 1.9rem;
+  }
+
+  .text-primary {
+    font-size: 1.1rem;
+  }
+
+  .hero-container-right {
+    width: 100%;
+  }
+
+  .btn-category {
+    width: 100%;
+  }
+
+  .img-category {
+    max-height: 180px;
+    max-width: 100%;
+  }
+
+  .medium-text {
+    font-size: 1.4rem;
+  }
+
+  #modal-bienvenida {
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  #modal-bienvenida h2 {
+    font-size: 1.8rem;
+  }
+
+  #modal-bienvenida p {
+    font-size: 1.1rem;
+  }
+
+  .img-logo-modal {
+    min-height: 100px;
+  }
+
+  .logo-vertical img {
+    height: 60px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    width: 95%;
+    gap: 12px;
+  }
+
+  .products-header {
+    align-items: center;
+    text-align: center;
+  }
+
+  .filters-nav {
+    justify-content: center;
+    font-size: 1.3rem;
+  }
+
+  .product-card {
+    min-height: auto;
+  }
+
+  .cart-table {
+    width: 95%;
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .ticket-container {
+    padding: 15px 20px;
+  }
+
+  .ticket-section {
+    padding: 30px 15px;
+  }
+
+  .ticket-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .btn-fin-container,
+  .ticket-btn-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-fin-container .btn,
+  .ticket-btn-container .btn {
+    width: 100%;
+  }
+
+  footer {
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Celulares chicos */
+@media (max-width: 400px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #modal-bienvenida button {
+    width: 100%;
+  }
+
+  .header-logo {
+    padding: 6px 12px;
+  }
+
+  .logo-vertical {
+    padding: 10px 15px;
+  }
+}
