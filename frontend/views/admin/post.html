@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <title>Peluditos Pet Shop ADMIN</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="header-container">
+        <header id="header">
+            <div class="header-content">
+                <div class="header-logo">
+                    <img class="img-logo" src="../../assets/img/logo.png" alt="logo" height="80px">
+                    <img class="img-logo" src="../../assets/img/texto-peluditos.png" alt="texto-peluditos" height="50px">
+                    <div class="name-container">
+                    </div>
+                </div>
+
+                <nav class="header-nav">
+                    <a class="nav-btn" href="/views/admin/get.html">Ver productos</a>
+                    <a class="nav-btn" href="/views/admin/getId.html">Consultar producto</a>
+                    <a class="nav-btn" href="/views/admin/post.html">Agregar producto</a>
+                    <a class="nav-btn" href="/views/admin/put.html">Modificar producto</a>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+        <!----Main---->
+    <main>
+        <!----Seccion de agregar producto-->
+
+        <section class="form-container">
+            <header class="products-header">
+                <h2>Agregar producto:</h2>
+            </header>
+
+            <form class="add-product-grid" id="form-product">
+                <label>Nombre producto</label>
+                <input type="text" name="name" id="nombreProducto" placeholder="Nombre">
+                <label>Precio producto</label>
+                <input type="number" name="price" id="precioProducto" placeholder="Precio">
+                <label>Tipo producto</label>
+                <select name="type" id="tipoProducto">
+                    <option value="comida">Comida</option>
+                    <option value="accesorio">Accesorio</option>
+                </select>
+                <label>Tipo mascota</label>
+                <select name="pet" id="mascotaProducto">
+                    <option value="perro">Perro</option>
+                    <option value="gato">Gato</option>
+                </select>
+                <label>Stock producto</label>
+                <input type="number" name="stock" id="stockProducto" placeholder="Stock">
+                <label>Imagen producto</label>
+                <input type="text" name="image" id="imagenProducto" placeholder="Imagen">
+
+                <div>
+                    <input type="submit" value="Crear producto">
+                </div>
+            </form>
+        </section>
+
+        <section class="seccion-mensaje">
+            <div id="estado-mensaje">
+
+            </div>
+        </section>
+    </main>
+
+    <!----Footer---->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2026 Tienda Peluditos. Todos los derechos reservados.</p>
+            <p> Desarrollado por: <strong>Matías Barboza y Guadalupe Valdez</strong></p>
+        </div>
+    </footer>
+
+    <script src="../../js/admin/post.js"></script>
+</body>
+</html>
