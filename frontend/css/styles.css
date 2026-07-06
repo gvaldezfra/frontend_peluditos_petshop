@@ -35,7 +35,9 @@ body {
   background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
-  transition: background-color 0.3s ease, color 0.1s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.1s ease;
 }
 
 main {
@@ -141,10 +143,6 @@ span {
   gap: 10px;
 }
 
-/* Insignia del logo: usa el mismo fondo del tema (--color-bg-light).
-  Como tenés dos assets de logo (uno pensado para fondo claro #f3f1ee
-  y otro para fondo oscuro #2c2723), este color siempre calza con el
-   logo que corresponda mostrar en cada tema. */
 .header-logo {
   display: flex;
   align-items: center;
@@ -221,13 +219,11 @@ input[type="text"] {
 input[type="number"] {
   border: none;
   font-size: 18px;
-
 }
 
-select{
+select {
   border: none;
   font-size: 18px;
-
 }
 
 input:focus {
@@ -424,7 +420,8 @@ PRODUCTOS
   gap: 20px;
   width: 60%;
 }
-.products-header, .login-header {
+.products-header,
+.login-header {
   color: var(--color-brown);
   display: flex;
   flex-direction: column;
@@ -436,11 +433,13 @@ PRODUCTOS
 #btn-abrir-filtros {
   margin-left: 60%;
 }
-.products-header h2, .login-header h2 {
+.products-header h2,
+.login-header h2 {
   margin-bottom: 20px;
 }
 
-.products-container, .form-container, .seccion-mensaje, .login-container {
+.products-container,
+.seccion-mensaje {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -596,8 +595,6 @@ PRODUCTOS
   font-size: 2.25rem;
 }
 
-/* Wrapper con scroll horizontal para que la tabla no rompa el layout
-   en pantallas angostas, sin tocar el HTML/JS existente. */
 .cart-table {
   padding: 15px;
   background-color: var(--color-bg-light);
@@ -735,17 +732,19 @@ th {
 /* =========================
 AGREGAR PRODUCTO
 ========================= */
-.add-product-grid label, #updateProduct-form label {
+.add-product-grid label,
+#updateProduct-form label {
   font-size: 130%;
 }
 
-.form-container h2{
+.form-container h2 {
   text-align: center;
   font-size: xx-large;
   margin-top: 10px;
 }
 
-.add-product-grid, #updateProduct-form, #login-form {
+.add-product-grid,
+#updateProduct-form {
   display: grid;
   text-align: center;
   grid-template-columns: repeat(2, 1fr);
@@ -764,30 +763,25 @@ AGREGAR PRODUCTO
 }
 
 .mensaje {
-    font-size: x-large;
-    margin-top: 50px;
-    padding: 20px;
-    border-radius: 5px;
-    /* estilos comunes a todos los mensajes */
+  font-size: x-large;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 5px;
+  /* estilos comunes a todos los mensajes */
 }
 
 .mensaje-exito {
-    background-color: green;
-    color: white;
+  background-color: green;
+  color: white;
 }
 
 .mensaje-error {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 
 .login-header {
   text-align: center;
-}
-
-#login-form {
-  margin-top: 50px;
-  width: 30%;
 }
 
 /* =========================
@@ -879,7 +873,9 @@ body,
 .cart-table,
 .ticket-container,
 #modal-bienvenida {
-  transition: background-color 0.3s ease, color 0.1s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.1s ease;
 }
 
 /* =========================
@@ -1101,4 +1097,87 @@ body,
   .logo-vertical {
     padding: 10px 15px;
   }
+}
+
+/* =========================
+  RESPONSIVE
+   ========================= */
+
+.login-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.login-title {
+  margin-top: 40px;
+  font-size: 3rem;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 50px;
+  width: 100%;
+}
+
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-light);
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60%;
+  min-width: 500px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 30px 60px 30px 60px;
+  font-size: 1.5rem;
+}
+
+.form-container {
+  display: flex;
+  width: 100%;
+}
+
+#login-form label {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+input#pass,
+input#user {
+  width: 100%;
+  background-color: var(--color-white);
+  font-size: 20px;
+  padding: 10px;
+  vertical-align: middle;
+  border-radius: 10px;
+  border: 0.5px solid #b0b0b0;
+}
+
+input.btn.btn-primary {
+  font-size: 1.5rem;
+}
+
+#btn-toggle-pass {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #7d7d7d;
+  display: flex;
+  align-items: center;
+  padding: 0;
 }
