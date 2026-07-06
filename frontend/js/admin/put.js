@@ -53,11 +53,17 @@ function renderProductos(lista) {
                     </span>
                 </div>
             </div>
-            <p>${estadoString(p.active)}</p>
-            <input type="button" id="updateProduct-button" value="Modificar producto">
-            <input type="button" id="deleteProduct-button" value="Eliminar producto">
-            <input type="button" id="toggleProduct-button" value="Activar/desactivar producto">
+            <div class="product-status">
+                <p>${estadoString(p.active)}</p>
+            </div>
+            <div class="product-actions">
+                <input class="btn btn-primary" type="button" id="updateProduct-button" value="Modificar producto">
+                <input class="btn btn-primary" type="button" id="deleteProduct-button" value="Eliminar producto">
+                <input class="btn btn-primary" type="button" id="toggleProduct-button" value="Activar/desactivar producto">
+            </div>
         </article>
+            
+            
     `).join("");
 
     // boton y funcionalidad actualizar producto

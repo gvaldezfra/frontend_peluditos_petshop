@@ -5,13 +5,13 @@ const contenedorProductos = document.querySelector(".products-grid");
 
 async function obtenerProductos() {
     try {
-        let respuesta = await fetch(url); 
+        let respuesta = await fetch(url);
 
         let data = await respuesta.json();
 
-        console.log(data); 
+        console.log(data);
 
-        productos = data.payload; 
+        productos = data.payload;
 
         renderProductos(productos);
 
@@ -24,17 +24,17 @@ async function obtenerProductos() {
 async function obtenerProductosId() {
     const busquedaId = document.getElementById("busqueda").value;
     try {
-        let respuesta = await fetch(`${url}/${busquedaId}`); 
+        let respuesta = await fetch(`${url}/${busquedaId}`);
 
-        if (!respuesta.ok || busquedaId === ""){
+        if (!respuesta.ok || busquedaId === "") {
             renderProductos([]);
             return;
         }
         let data = await respuesta.json();
 
-        console.log(data); 
+        console.log(data);
 
-        productos = data.payload; 
+        productos = data.payload;
 
         renderProductos([productos]);
 
@@ -71,7 +71,7 @@ function renderProductos(lista) {
     `).join("");
 }
 
-function estadoString(estado){
+function estadoString(estado) {
     return estado === 1 ? "Activo" : "Desactivado";
 }
 
@@ -95,27 +95,29 @@ const svgOjoCerrado = `
     </svg>
 `;
 
-btnTogglePass.addEventListener("click", () => {
-    if (inputPass.type === "password") {
-        inputPass.type = "text"; 
-        btnTogglePass.innerHTML = svgOjoCerrado; // Inyectamos el ojo tachado
-    } else {
-        inputPass.type = "password"; 
-        btnTogglePass.innerHTML = svgOjoAbierto; // Inyectamos el ojo normal
-    }
-});
+if (btnTogglePass) {
+    btnTogglePass.addEventListener("click", () => {
+        if (inputPass.type === "password") {
+            inputPass.type = "text";
+            btnTogglePass.innerHTML = svgOjoCerrado; // Inyectamos el ojo tachado
+        } else {
+            inputPass.type = "password";
+            btnTogglePass.innerHTML = svgOjoAbierto; // Inyectamos el ojo normal
+        }
+    });
+}
 
-function init(){
-    if (now.includes("get.html")){
+function init() {
+    if (now.includes("get.html")) {
         obtenerProductos();
     };
-    if (now.includes("getId.html")){
+    if (now.includes("getId.html")) {
         botonBuscar.addEventListener("click", obtenerProductosId);
 
         const busquedaId = document.getElementById("busqueda")
 
         busquedaId.addEventListener("keydown", (event) => {
-            if (event.key === "Enter"){
+            if (event.key === "Enter") {
                 obtenerProductosId();
             }
         });

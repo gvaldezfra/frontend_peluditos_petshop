@@ -105,7 +105,7 @@ span {
 .btn-ghost {
   background-color: rgba(255, 255, 255, 0.25);
   color: var(--color-brown);
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .btn-ghost:hover {
@@ -156,7 +156,7 @@ span {
   color: var(--color-brown);
   margin: 0 10px;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   transition: 0.2s;
 }
@@ -165,13 +165,10 @@ span {
   color: var(--color-primary);
 }
 
-.nav-btn {
-  align-items: center;
-}
 
 #saludo {
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: var(--color-primary);
   padding-left: 20px;
 }
@@ -734,7 +731,7 @@ AGREGAR PRODUCTO
 ========================= */
 .add-product-grid label,
 #updateProduct-form label {
-  font-size: 130%;
+  font-size: 1.5rem;
 }
 
 .form-container h2 {
@@ -751,7 +748,6 @@ AGREGAR PRODUCTO
   gap: 20px;
   padding: 20px;
   width: 25%;
-  background-color: #ffffff;
 }
 
 .add-product-grid input {
@@ -760,6 +756,10 @@ AGREGAR PRODUCTO
 
 #updateProduct-form {
   width: 100%;
+  background-color: var(--color-bg-light);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
 }
 
 .mensaje {
