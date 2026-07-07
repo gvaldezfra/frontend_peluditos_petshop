@@ -14,6 +14,8 @@
   --color-white: #ffffff;
   --color-gray: #333;
   --color-light-gray: #7d7d7d;
+  --color-bg-input: #f3f1ee;
+  --color-text-btn-primary: #ffffff;
 }
 
 /* =========================
@@ -69,7 +71,7 @@ span {
 
 .text-primary {
   color: var(--color-text-primary);
-  font-size: 1.5rem;
+  font-size: clamp(1.05rem, 0.6vw + 0.9rem, 1.5rem);
 }
 
 @view-transition {
@@ -93,8 +95,8 @@ span {
 
 .btn-primary {
   background-color: var(--color-primary);
-  color: var(--color-white);
-  font-size: 1.25rem;
+  color: var(--color-text-btn-primary);
+  font-size: 1.5rem;
   padding: 10px;
 }
 
@@ -156,7 +158,7 @@ span {
   color: var(--color-brown);
   margin: 0 10px;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: clamp(1.1rem, 0.6vw + 1rem, 1.6rem);
   font-weight: 700;
   transition: 0.2s;
 }
@@ -168,7 +170,7 @@ span {
 
 #saludo {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: clamp(1rem, 0.6vw + 0.9rem, 1.5rem);
   color: var(--color-primary);
   padding-left: 20px;
 }
@@ -236,14 +238,15 @@ input:focus {
    ========================= */
 .title-primary {
   color: var(--color-brown);
-  font-size: 3.5rem;
+  font-size: clamp(1.8rem, 2.2vw + 1.4rem, 3.4rem);
 }
 
 .hero-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  width: min(1300px, 94%);
+  margin: 0 auto;
   gap: 40px;
   padding: 20px;
 }
@@ -277,15 +280,16 @@ input:focus {
 .hero-container-right {
   display: flex;
   justify-content: center;
+  width: auto;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
   flex-wrap: wrap;
 }
 
 .img-category {
-  max-height: 330px;
-  max-width: 500px;
-  width: 100%;
+  height: clamp(160px, 20vw, 300px);
+  max-width: 100%;
+  width: auto;
   object-fit: contain;
   border: none;
   border-radius: 15px;
@@ -298,14 +302,16 @@ input:focus {
   background-color: var(--color-bg-light);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: 0.3s;
+  transition: transform 0.3s ease-in-out;
 }
 
 .btn-category:hover {
+  transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .medium-text {
-  font-size: 2rem;
+  font-size: clamp(1.1rem, 0.8vw + 0.9rem, 1.6rem);
   color: var(--color-title-primary);
 }
 
@@ -399,42 +405,18 @@ input:focus {
 }
 
 #modal-bienvenida h2 {
-  font-size: 2.75rem;
+  font-size: clamp(1.5rem, 1.8vw + 1.2rem, 2.4rem);
   margin-bottom: 20px;
 }
 
 #modal-bienvenida p {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 0.6vw + 0.85rem, 1.3rem);
   margin-bottom: 10px;
 }
 
 /* =========================
 PRODUCTOS
 ========================= */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-  width: 60%;
-}
-.products-header,
-.login-header {
-  color: var(--color-brown);
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  padding: 20px;
-  font-size: 1.5rem;
-}
-
-#btn-abrir-filtros {
-  margin-left: 60%;
-}
-.products-header h2,
-.login-header h2 {
-  margin-bottom: 20px;
-}
-
 .products-container,
 .seccion-mensaje {
   display: flex;
@@ -449,9 +431,10 @@ PRODUCTOS
   color: var(--color-brown);
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: min(1300px, 94%);
+  margin: 0 auto;
   padding: 20px;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 0.6vw + 0.85rem, 1.3rem);
 }
 
 .products-header h2 {
@@ -464,16 +447,17 @@ PRODUCTOS
 
 .filters-nav {
   display: flex;
-  font-size: 2rem;
+  font-size: clamp(1rem, 0.7vw + 0.85rem, 1.4rem);
   gap: 10px;
   flex-wrap: wrap;
 }
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   gap: 20px;
-  width: 60%;
+  width: min(1300px, 94%);
+  margin: 0 auto;
 }
 
 .product-card {
@@ -508,7 +492,7 @@ PRODUCTOS
 }
 
 .product-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 0.8vw + 0.9rem, 1.5rem);
   font-weight: bold;
   color: var(--color-brown);
 }
@@ -524,12 +508,12 @@ PRODUCTOS
 }
 
 .product-prices p {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--color-brown);
 }
 
 .product-prices span {
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: var(--color-light-gray);
 }
 
@@ -541,7 +525,7 @@ PRODUCTOS
 }
 
 .quantity-container {
-  background-color: var(--color-bg-light);
+  background-color: var(--color-bg-input);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -559,12 +543,13 @@ PRODUCTOS
   width: 40px;
   text-align: center;
   border: none;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   background-color: transparent;
 }
 
 .btn-minus,
 .btn-plus {
+  font-size: 1.5rem;
   color: var(--color-light-gray);
 }
 
@@ -579,26 +564,26 @@ PRODUCTOS
   CARRITO
    ========================= */
 .cart {
-  padding: 20px;
+  padding: 30px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--color-text-primary);
 }
 
 .cart h2 {
-  color: var(--color-brown);
   margin-bottom: 20px;
-  font-size: 2.25rem;
+  font-size: clamp(1.8rem, 2vw + 1.5rem, 3rem);
 }
 
 .cart-table {
-  padding: 15px;
-  background-color: var(--color-bg-light);
-  width: 60%;
+  padding: 30px;
+  background-color: var(--color-white);
+  width: min(900px, 92%);
+  margin: 0 auto 20px auto;
   border-radius: 15px;
-  font-size: 1.25rem;
-  margin-bottom: 20px;
+  font-size: clamp(1rem, 0.6vw + 0.85rem, 1.3rem);
   text-align: center;
   display: block;
   overflow-x: auto;
@@ -611,7 +596,10 @@ PRODUCTOS
   width: 100%;
 }
 
-th {
+.th-cart {
+  font-size: clamp(1.1rem, 0.8vw + 0.9rem, 1.5rem);
+  text-align: center;
+  color: var(--color-title-primary);
   padding-bottom: 20px;
 }
 
@@ -622,12 +610,20 @@ th {
   vertical-align: middle;
 }
 
+.td-total-price {
+  font-size: clamp(1.2rem, 0.8vw + 1rem, 1.6rem);
+}
 .cart-product-info {
   display: flex;
-  justify-content: left;
+  justify-content:space-around;
   align-items: center;
   gap: 10px;
   white-space: normal;
+}
+
+.cart-product-info img {
+  border-radius: 10px;
+  max-height: 100px;
 }
 
 .btn-fin-container {
@@ -636,12 +632,9 @@ th {
   flex-wrap: wrap;
   gap: 10px;
 }
-
-.btn-fin,
-.btn-continue {
-  font-size: 1.2rem;
+.btn-continue, .btn-fin {
+  font-size: clamp(1.1rem, 0.7vw + 0.9rem, 1.5rem);
 }
-
 /* =========================
   TICKET
    ========================= */
@@ -657,7 +650,7 @@ th {
 
 .ticket-section h2 {
   color: var(--color-brown);
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 1.5vw + 1.2rem, 2.2rem);
   text-align: center;
 }
 
@@ -690,8 +683,16 @@ th {
   list-style: none;
   text-align: left;
   width: 100%;
+  border-collapse: collapse;
   display: block;
   overflow-x: auto;
+}
+
+.ticket-table thead,
+.ticket-table tbody {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .ticket-table thead,
@@ -702,7 +703,17 @@ th {
 
 .ticket-table td,
 th {
-  padding: 5px 5px 5px 0;
+  padding: 8px 15px 8px 0;
+}
+
+.ticket-table td:not(:first-child),
+.ticket-table th:not(:first-child) {
+  text-align: right;
+}
+
+.ticket-table td:last-child,
+.ticket-table th:last-child {
+  padding-right: 0;
 }
 
 .ticket-table tr:nth-child(even) {
@@ -736,7 +747,7 @@ AGREGAR PRODUCTO
 
 .form-container h2 {
   text-align: center;
-  font-size: xx-large;
+  font-size: clamp(1.6rem, 1.5vw + 1.3rem, 2.2rem);
   margin-top: 10px;
 }
 
@@ -747,7 +758,8 @@ AGREGAR PRODUCTO
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   padding: 20px;
-  width: 25%;
+  width: min(600px, 92%);
+  margin: 0 auto;
 }
 
 .add-product-grid input {
@@ -798,7 +810,8 @@ footer {
 }
 
 #footer-container {
-  color: var(--color-white);
+  color: #ffffff;
+  font-size: 1.5rem;
 }
 
 .admin-link {
@@ -825,22 +838,27 @@ footer {
 }
 
 .modal-content {
+  display: flex;
+  flex-direction: column;
   background-color: var(--color-white);
   padding: 30px;
   border-radius: 15px;
   width: 90%;
   max-width: 400px;
   text-align: center;
+  gap: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .modal-content h3 {
+  font-size: clamp(1.4rem, 1vw + 1.2rem, 1.8rem);
   margin-bottom: 15px;
   color: var(--color-brown);
 }
 
 .modal-content p {
   margin-bottom: 25px;
+  font-size: clamp(1rem, 0.6vw + 0.85rem, 1.3rem);
   color: var(--color-gray);
 }
 
@@ -851,6 +869,9 @@ footer {
   gap: 15px;
 }
 
+#modal-btn-cancel {
+  font-size: clamp(1rem, 0.6vw + 0.85rem, 1.3rem);
+}
 /* =========================
   DARK MODE
    ========================= */
@@ -862,6 +883,8 @@ body.dark-mode {
   --color-light-gray: #b0b0b0;
   --color-white: #222;
   --color-text-primary: #ffffff;
+  --color-title-primary: #ffffff;
+  --color-bg-input: #756e6e;
 }
 
 body.dark-mode .search-bar:hover {
@@ -879,18 +902,28 @@ body,
 }
 
 /* =========================
-  RESPONSIVE
+  RESPONSIVE — 3 cortes: PC estándar (base), Tablet, Celular
+   Los tamaños de fuente ya son fluidos (clamp) en los estilos base,
+   así que estos cortes ajustan sobre todo layout: columnas, anchos y espaciados.
    ========================= */
 
-/* Tablets / notebooks chicas */
-@media (max-width: 1100px) {
-  .products-grid {
-    grid-template-columns: repeat(3, 1fr);
-    width: 80%;
-  }
-
+/* =========================
+   TABLET (hasta 1024px)
+   ========================= */
+@media (max-width: 1024px) {
   .header-content {
     margin-right: 0;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  #header {
+    padding: 10px 15px;
+  }
+
+  .search-bar {
+    order: 3;
+    max-width: 100%;
   }
 
   .hero-container {
@@ -902,57 +935,30 @@ body,
   .hero-container-left {
     max-width: 100%;
   }
-}
-
-/* Tablets */
-@media (max-width: 900px) {
-  #header {
-    padding: 10px 15px;
-  }
-
-  .header-content {
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .header-nav a {
-    font-size: 1.2rem;
-    margin: 0 6px;
-  }
-
-  .search-bar {
-    order: 3;
-    max-width: 100%;
-  }
-
-  .title-primary {
-    font-size: 2.5rem;
-  }
-
-  .img-category {
-    max-height: 220px;
-  }
-
-  .cart-table,
-  .products-grid {
-    width: 90%;
-  }
 
   .products-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+    width: min(700px, 90%);
+  }
+
+  .cart-table {
+    width: min(700px, 90%);
   }
 
   #btn-abrir-filtros {
     margin-left: 0;
   }
+
+  .add-product-grid,
+  #updateProduct-form {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-/* Celulares */
+/* =========================
+   CELULAR (hasta 600px)
+   ========================= */
 @media (max-width: 600px) {
-  body {
-    font-size: 0.95rem;
-  }
-
   .header-content {
     flex-direction: column;
     align-items: stretch;
@@ -963,28 +969,13 @@ body,
   }
 
   .header-nav {
-    display: flex;
     justify-content: center;
     flex-wrap: wrap;
-  }
-
-  .header-nav a {
-    font-size: 1.1rem;
-    margin: 0 8px;
   }
 
   #saludo {
     padding-left: 0;
     text-align: center;
-    font-size: 1.2rem;
-  }
-
-  .title-primary {
-    font-size: 1.9rem;
-  }
-
-  .text-primary {
-    font-size: 1.1rem;
   }
 
   .hero-container-right {
@@ -995,26 +986,9 @@ body,
     width: 100%;
   }
 
-  .img-category {
-    max-height: 180px;
-    max-width: 100%;
-  }
-
-  .medium-text {
-    font-size: 1.4rem;
-  }
-
   #modal-bienvenida {
     padding: 20px;
     border-radius: 15px;
-  }
-
-  #modal-bienvenida h2 {
-    font-size: 1.8rem;
-  }
-
-  #modal-bienvenida p {
-    font-size: 1.1rem;
   }
 
   .img-logo-modal {
@@ -1026,8 +1000,8 @@ body,
   }
 
   .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-    width: 95%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 94%;
     gap: 12px;
   }
 
@@ -1038,17 +1012,20 @@ body,
 
   .filters-nav {
     justify-content: center;
-    font-size: 1.3rem;
   }
 
   .product-card {
     min-height: auto;
+    padding: 10px;
+  }
+
+  .product-card img {
+    height: 140px;
   }
 
   .cart-table {
-    width: 95%;
-    font-size: 1rem;
-    padding: 10px;
+    width: 94%;
+    padding: 15px;
   }
 
   .ticket-container {
@@ -1057,10 +1034,6 @@ body,
 
   .ticket-section {
     padding: 30px 15px;
-  }
-
-  .ticket-section h2 {
-    font-size: 1.8rem;
   }
 
   .btn-fin-container,
@@ -1078,30 +1051,17 @@ body,
     padding: 12px;
     font-size: 0.85rem;
   }
-}
 
-/* Celulares chicos */
-@media (max-width: 400px) {
-  .products-grid {
+  .add-product-grid,
+  #updateProduct-form {
     grid-template-columns: 1fr;
+    width: 94%;
   }
 
-  #modal-bienvenida button {
-    width: 100%;
-  }
-
-  .header-logo {
-    padding: 6px 12px;
-  }
-
-  .logo-vertical {
-    padding: 10px 15px;
+  .login-container {
+    padding: 25px 20px;
   }
 }
-
-/* =========================
-  RESPONSIVE
-   ========================= */
 
 .login-btn-container {
   display: flex;
@@ -1112,7 +1072,7 @@ body,
 
 .login-title {
   margin-top: 40px;
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 2vw + 1.3rem, 2.6rem);
 }
 
 #login-form {
@@ -1136,11 +1096,12 @@ body,
   justify-content: space-between;
   align-items: center;
   min-height: 60%;
-  min-width: 500px;
+  width: min(500px, 92%);
+  margin: 0 auto;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
-  padding: 30px 60px 30px 60px;
-  font-size: 1.5rem;
+  padding: 30px clamp(20px, 6vw, 60px);
+  font-size: clamp(1.1rem, 0.7vw + 0.9rem, 1.5rem);
 }
 
 .form-container {
@@ -1150,7 +1111,7 @@ body,
 
 #login-form label {
   margin-bottom: 20px;
-  font-size: 2rem;
+  font-size: clamp(1.1rem, 0.8vw + 0.95rem, 1.6rem);
 }
 
 input#pass,
@@ -1180,4 +1141,39 @@ input.btn.btn-primary {
   display: flex;
   align-items: center;
   padding: 0;
+}
+
+
+/* 1. Forzamos el contenedor flex */
+.header-nav {
+  display: flex !important;
+  align-items: center !important;
+  gap: 15px;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1 !important;
+}
+
+#btn-theme-toggle {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin-left: 5px;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer;
+  position: relative;
+  top: 1px; 
+}
+
+#btn-theme-toggle svg {
+  margin-top: auto;
+  width: 40px !important; 
+  height: 40px !important;
+  display: block;
 }

@@ -85,6 +85,17 @@ async function getActiveProducts() {
 // =====================================================================
 // BIENVENIDA: nombre del cliente
 // =====================================================================
+//Valida si hay un nombre guardado
+function validarNombreCliente() {
+    const nombreGuardado = sessionStorage.getItem("nombreCliente");
+    const enIndex = window.location.pathname.includes("index.html") || window.location.pathname === "/";
+
+    if (!nombreGuardado && !enIndex) {
+        window.location.href = "index.html";
+        return false; // Todavía no podemos seguir inicializando esta página
+    }
+    return true;
+}
 
 // Muestra el modal de bienvenida (solo en index) si todavía no hay un
 // nombre guardado en la sesión, y escucha el botón "Continuar" para
@@ -344,18 +355,6 @@ document.addEventListener("click", (e) => {
 
         // Cambiamos el icono del botón
         btnTheme.innerHTML = isDark ? iconoSun : iconoMoon;
-
-        // Cambiamos el src del logo en vivo (hay un logo para fondo claro y otro para fondo oscuro)
-        const logoPrincipal = document.getElementById("logo-principal");
-        if (logoPrincipal) {
-            logoPrincipal.src = isDark ? "../assets/img/logo-oscuro.png" : "../assets/img/logo.png";
-        }
-
-        // Ídem para el logo de texto PELUDITOS
-        const logoTexto = document.getElementById("logo-texto");
-        if (logoTexto) {
-            logoTexto.src = isDark ? "../assets/img/texto-peluditos-oscuro.png" : "../assets/img/texto-peluditos.png";
-        }
     }
 });
 
@@ -367,6 +366,8 @@ document.addEventListener("click", (e) => {
 // Arranca la app: renderiza el header/footer, maneja la bienvenida, trae
 // los productos y renderiza la pantalla que corresponda según la ruta
 async function init() {
+    //Valido si hay cliente
+     if (!validarNombreCliente()) return;
     // Renderizo el header y footer
     renderizarLayout();
     inicializarBienvenida();

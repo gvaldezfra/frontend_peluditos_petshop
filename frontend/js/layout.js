@@ -1,9 +1,9 @@
 
 
 // svg para boton de tema claro/oscuro
-export const iconoSun = `<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8V16Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4V8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16V20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"></path></svg>`;
+export const iconoSun = `<svg viewBox="0 0 24 24" width="2em" height="2em" fill="#ffffff"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8V16Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4V8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16V20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"></path></svg>`;
 
-export const iconoMoon = `<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" style="transform: scaleX(-1);"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8V16Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4V8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16V20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"></path></svg>`;
+export const iconoMoon = `<svg viewBox="0 0 24 24" width="2em" height="2em" fill="#000000" style="transform: scaleX(-1);"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8V16Z"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4V8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16V20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z"></path></svg>`;
 
 
 export function renderizarLayout() {
@@ -12,19 +12,15 @@ export function renderizarLayout() {
 
     const nombreCliente = sessionStorage.getItem("nombreCliente") || "";
 
-    
-
     const temaGuardado = localStorage.getItem("theme") || "light";
     const iconoTema = temaGuardado === "dark" ? iconoSun : iconoMoon;
-    const srcLogo = temaGuardado === "dark" ? "../assets/img/logo-oscuro.png" : "../assets/img/logo.png";
-    const srcTextoLogo = temaGuardado === "dark" ? "../assets/img/texto-peluditos-oscuro.png" : "../assets/img/texto-peluditos.png";
 
     headerContainer.innerHTML = `
         <header id="header">
             <div class="header-content">
                 <a class="header-logo" href="../views/index.html">
-                    <img id="logo-principal" class="img-logo" src="${srcLogo}" alt="logo" title="Tienda Peluditos" height="80px">
-                    <img id="logo-texto" class="img-logo" src="${srcTextoLogo}" alt="texto-peluditos" title="Tienda Peluditos" height="50px">                
+                    <img id="logo-principal" class="img-logo" src="../assets/img/logo.png" alt="logo" title="Tienda Peluditos" height="80px">
+                    <img id="logo-texto" class="img-logo" src="../assets/img/texto-peluditos.png" alt="texto-peluditos" title="Tienda Peluditos" height="50px">                
                 </a>
                 <div class="name-container">
                     <h3 id="saludo">${nombreCliente ? `¡Hola, ${nombreCliente}!` : ''}</h3>
@@ -33,7 +29,7 @@ export function renderizarLayout() {
                     <a class="nav-btn" href="../views/index.html">Inicio</a>
                     <a class="nav-btn" href="../views/productos.html">Productos</a>
                     <a class="nav-btn" href="../views/carrito.html">Carrito</a>
-                    <button id="btn-theme-toggle" class="btn" style="font-size: 1.5rem; margin-left: 15px; padding: 10px;">${iconoTema}</button>
+                    <button id="btn-theme-toggle" aria-label="Cambiar de tema" title="Cambiar de tema">${iconoTema}</button>
                 </nav>
             </div>
         </header>
@@ -109,7 +105,7 @@ export function renderCarrito(carrito) {
         <tr class="cart-item">
             <td class="td-product">
                 <div class="cart-product-info">
-                    <img src="../assets/img/${item.image}" alt="${item.name}" width="50">
+                    <img src="../assets/img/${item.image}" alt="${item.name}">
                     <p>${item.name}</p>
                 </div>
             </td>
@@ -134,8 +130,8 @@ export function renderCarrito(carrito) {
 
     tbodyCarrito.innerHTML += `
         <tr>
-            <td class="td-price" colspan="3" style="text-align: end; padding: 2rem;">
-            <p><strong>Total: $${totalCarrito}</strong></p>
+            <td class="td-total-price" colspan="3" style="text-align: end; padding: 2rem;">
+            <p><strong>Total:</strong> $${totalCarrito}</p>
             </td>
         </tr>
     `;
