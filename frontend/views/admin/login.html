@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -19,33 +19,37 @@
             <div class="header-content">
                 <div class="header-logo">
                     <img class="img-logo" src="../../assets/img/logo.png" alt="logo" height="80px">
-                    <img class="img-logo" src="../../assets/img/texto-peluditos.png" alt="texto-peluditos" height="50px">
-                    <div class="name-container"></div>
+                    <img class="img-logo" src="../../assets/img/texto-peluditos.png" alt="texto-peluditos"
+                        height="50px">
+                    <div class="name-container">
+                    </div>
                 </div>
             </div>
         </header>
     </div>
 
-    <main class="main-center"> <section class="login-container">
+    <!----Main---->
+    <main class="main-center">
+        <!----Seccion de productos-->
+        <section class="login-container">
             <h2 class="login-title">Iniciar sesión</h2>
             <div class="form-container">
-                
                 <form id="login-form">
-                    
+
                     <div id="user-container" class="login-form-container" style="margin-bottom: 15px;">
-                        <label for="username">Usuario</label>
-                        <input type="text" name="username" id="username" placeholder="Nombre de usuario" required
+                        <label for="user">Usuario</label>
+                        <input type="text" name="username" id="user" placeholder="Nombre de usuario" required
                             style="width: 100%; box-sizing: border-box; padding: 10px;">
                     </div>
 
                     <div id="password-container" class="login-form-container">
-                        <label for="password">Contraseña</label>
+                        <label for="pass">Contraseña</label>
 
                         <div style="position: relative; width: 100%;">
-                            <input type="password" name="password" id="password" placeholder="Contraseña" required
+                            <input type="password" name="password" id="pass" placeholder="Contraseña" required
                                 style="width: 100%; box-sizing: border-box; padding: 10px; padding-right: 40px;">
 
-                            <button type="button" id="btn-toggle-pass" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
+                            <button type="button" id="btn-toggle-pass">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -56,21 +60,18 @@
                         </div>
                     </div>
 
-                    <div class="login-btn-container" style="margin-top: 20px;">
-                        <input class="btn btn-primary" type="submit" value="Acceso rapido">
-                        <input class="btn btn-primary" type="submit" value="Ingresar">
-                    </div>
-
                 </form>
             </div>
-        </section>
+            <div class="login-btn-container">
+                <input class="btn btn-primary" type="submit" value="Acceso rapido">
+                <input class="btn btn-primary" type="submit" value="Ingresar">
+            </div>
 
-        <section class="seccion-mensaje">
-            <div id="estado-mensaje" style="text-align: center; margin-top: 15px; font-weight: 600;"></div>
         </section>
 
     </main>
 
+    <!----Footer---->
     <footer>
         <div class="footer-container">
             <p>&copy; 2026 Tienda Peluditos. Todos los derechos reservados.</p>
@@ -78,7 +79,7 @@
         </div>
     </footer>
 
-    <script src="../../js/admin/login.js"></script>
+    <script src="../../js/admin/get.js"></script>
 </body>
 
 </html>

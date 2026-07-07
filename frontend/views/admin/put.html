@@ -10,7 +10,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="../../css/styles.css">
+<<<<<<< HEAD
     <title>Document</title>
+=======
+>>>>>>> main
 </head>
 
 <body>
@@ -25,17 +28,27 @@
                 </div>
 
                 <nav class="header-nav">
+<<<<<<< HEAD
                     <a class="nav-btn" href="/views/admin/get.html">Ver productos</a>
                     <a class="nav-btn" href="/views/admin/getId.html">Consultar producto</a>
                     <a class="nav-btn" href="/views/admin/post.html">Agregar producto</a>
                     <a class="nav-btn" href="/views/admin/put.html">Modificar producto</a>
+=======
+                    <a class="nav-btn" href="./get.html">Ver productos</a>
+                    <a class="nav-btn" href="./getId.html">Consultar producto</a>
+                    <a class="nav-btn" href="./post.html">Agregar producto</a>
+                    <a class="nav-btn" href="./put.html">Modificar producto</a>
+>>>>>>> main
                 </nav>
             </div>
         </header>
     </div>
 
         <!----Main---->
-    <main>
+    <main style="padding: 50px;">
+        <header class="products-header">
+                <h2 class="title-primary">Buscar producto por id:</h2>
+        </header>
         <div class="search-bar">
             <input type="text" id="busqueda" placeholder="Ingrese el ID del producto">
                 <button class="search-btn"><span>
@@ -55,10 +68,6 @@
         <!----Seccion de buscar producto y actualizar-->
 
         <section class="products-container">
-            <header class="products-header">
-                <h2>Buscar producto por id:</h2>
-            </header>
-
             <!-- se renderiza el producto aca-->
             <div class="products-grid">
                 
