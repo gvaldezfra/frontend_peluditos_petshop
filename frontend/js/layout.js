@@ -63,7 +63,7 @@ export function renderProductos(lista) {
     contenedorProductos.innerHTML = listaFiltrada.map(p => `
         <article class="product-card">
             <div class="product-image">
-                <img src="../assets/img/${p.image}" alt="${p.name}">
+                <img src="${p.image}" alt="${p.name}">
             </div>
             <div class="product-info">
                 <h3 class="product-title">${p.name}</h3>
