@@ -5,13 +5,13 @@ const contenedorProductos = document.querySelector(".products-grid");
 
 async function obtenerProductos() {
     try {
-        let respuesta = await fetch(url);
+        let respuesta = await fetch(url); 
 
         let data = await respuesta.json();
 
-        console.log(data);
+        console.log(data); 
 
-        productos = data.payload;
+        productos = data.payload; 
 
         renderProductos(productos);
 
@@ -24,17 +24,17 @@ async function obtenerProductos() {
 async function obtenerProductosId() {
     const busquedaId = document.getElementById("busqueda").value;
     try {
-        let respuesta = await fetch(`${url}/${busquedaId}`);
+        let respuesta = await fetch(`${url}/${busquedaId}`); 
 
-        if (!respuesta.ok || busquedaId === "") {
+        if (!respuesta.ok || busquedaId === ""){
             renderProductos([]);
             return;
         }
         let data = await respuesta.json();
 
-        console.log(data);
+        console.log(data); 
 
-        productos = data.payload;
+        productos = data.payload; 
 
         renderProductos([productos]);
 
@@ -117,7 +117,7 @@ function init() {
         const busquedaId = document.getElementById("busqueda")
 
         busquedaId.addEventListener("keydown", (event) => {
-            if (event.key === "Enter") {
+            if (event.key === "Enter"){
                 obtenerProductosId();
             }
         });
