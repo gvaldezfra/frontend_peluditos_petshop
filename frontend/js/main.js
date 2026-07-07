@@ -5,7 +5,7 @@
 // el modal genérico de mensajes)
 // =====================================================================
 
-import { renderCarrito, renderizarLayout, renderProductos, mostrarModal } from "./layout.js";
+import { renderCarrito, renderizarLayout, renderProductos, mostrarModal, iconoSun, iconoMoon } from "./layout.js";
 import { renderTicket } from "./layout.js";
 
 
@@ -343,7 +343,7 @@ document.addEventListener("click", (e) => {
         localStorage.setItem("theme", isDark ? "dark" : "light");
 
         // Cambiamos el icono del botón
-        btnTheme.innerText = isDark ? "☀️" : "🌙";
+        btnTheme.innerHTML = isDark ? iconoSun : iconoMoon;
 
         // Cambiamos el src del logo en vivo (hay un logo para fondo claro y otro para fondo oscuro)
         const logoPrincipal = document.getElementById("logo-principal");
