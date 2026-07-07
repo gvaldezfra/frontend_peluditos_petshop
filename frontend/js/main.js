@@ -260,6 +260,11 @@ document.addEventListener("click", (e) => {
         renderCarrito(carrito);
     }
 
+    // Botón "Seguir comprando" del carrito -> redirige a la lista de productos
+    if (e.target.classList.contains("btn-continue")) {
+        window.location.href = "productos.html";
+    }
+    
     // Botón "Finalizar compra": valida el carrito, pide confirmación
     // con el modal, registra la venta en la API y redirige al ticket
     if (e.target.classList.contains("btn-fin")) {
@@ -367,7 +372,7 @@ document.addEventListener("click", (e) => {
 // los productos y renderiza la pantalla que corresponda según la ruta
 async function init() {
     //Valido si hay cliente
-     if (!validarNombreCliente()) return;
+    if (!validarNombreCliente()) return;
     // Renderizo el header y footer
     renderizarLayout();
     inicializarBienvenida();

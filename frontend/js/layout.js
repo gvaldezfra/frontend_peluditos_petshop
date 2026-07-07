@@ -39,7 +39,6 @@ export function renderizarLayout() {
         <footer>
             <p>&copy; 2026 Tienda Peluditos. Todos los derechos reservados.</p>
             <p> Desarrollado por: <strong>Matías Barboza y Guadalupe Valdez</strong></p>
-            <a href="frontend/views/admin/login.html" class="admin-link">Ingresar como administrador</a>
         </footer>
     `;
 }
