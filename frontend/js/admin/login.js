@@ -1,5 +1,5 @@
 const url = "http://localhost:3000/login";
-const adminForm = document.getElementById("login-form");
+const btnIngresar = document.getElementById("btn-ingresar");
 const estadoMensaje = document.getElementById("estado-mensaje");
 
 function mostrarMensajes(tipo, mensaje){
@@ -8,12 +8,13 @@ function mostrarMensajes(tipo, mensaje){
     `;
 }
 
-adminForm.addEventListener("submit", async event => {
-    event.preventDefault();
 
-    const formData = new FormData(event.target);
+btnIngresar.addEventListener("click", async () => {
 
-    const data = Object.fromEntries(formData.entries());
+    const data = {
+        username: document.getElementById("user").value,
+        password: document.getElementById("pass").value
+    };
 
     const errores = [];
 
